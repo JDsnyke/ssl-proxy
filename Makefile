@@ -18,10 +18,9 @@ run:
 release: 
 	go mod download	
 	GOOS=linux GOARCH=arm64 go build -o build/${BINARY}-linux-arm64 .;
+	GOOS=linux GOARCH=arm64 go build -o build/${BINARY}-linux-aarch64 .;
 	GOOS=linux GOARCH=amd64 go build -o build/${BINARY}-linux-amd64 .;
-	GOOS=linux GOARCH=aarch64 go build -o build/${BINARY}-linux-aarch64 .;
 	cd build; \
 	tar -zcvf ssl-proxy-linux-arm64.tar.gz ssl-proxy-linux-arm64; \
-	tar -zcvf ssl-proxy-linux-amd64.tar.gz ssl-proxy-linux-amd64; \
-	tar -zcvf ssl-proxy-linux-aarch64.tar.gz ssl-proxy-linux-aarch64;
-
+	tar -zcvf ssl-proxy-linux-aarch64.tar.gz ssl-proxy-linux-aarch64; \
+	tar -zcvf ssl-proxy-linux-amd64.tar.gz ssl-proxy-linux-amd64;
